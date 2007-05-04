@@ -2,7 +2,7 @@ Summary:	Project managment tool
 Summary(pl.UTF-8):	Narzędzie do zarządzania projektem
 Name:		faces-pm
 Version:	0.11.4
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/faces-project/%{name}-%{version}.tar.gz
@@ -34,7 +34,10 @@ python setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
-#py_postclean
+%py_postclean
+# reinstall project templates deleted by py_postclean
+install ./faces/gui/resources/templates/*.py \
+	$RPM_BUILD_ROOT%{py_sitescriptdir}/faces/gui/resources/templates/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -51,9 +54,16 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/faces/gui/*.py[co]
 %dir %{py_sitescriptdir}/faces/gui/editor
 %dir %{py_sitescriptdir}/faces/gui/editor/*.py[co]
-%{py_sitescriptdir}/faces/gui/resources
+%dir %{py_sitescriptdir}/faces/gui/resources
+%dir %{py_sitescriptdir}/faces/gui/resources/help
+%{py_sitescriptdir}/faces/gui/resources/help/*.zip
+%dir %{py_sitescriptdir}/faces/gui/resources/images
+%{py_sitescriptdir}/faces/gui/resources/images/*.gif
+%{py_sitescriptdir}/faces/gui/resources/images/*.png
+%{py_sitescriptdir}/faces/gui/resources/images/*.ico
+%dir %{py_sitescriptdir}/faces/gui/resources/templates
+%{py_sitescriptdir}/faces/gui/resources/templates/*.py
 %dir %{py_sitescriptdir}/faces/howtos
-#%{py_sitescriptdir}/faces/howtos/*.py[co]
 %{py_sitescriptdir}/faces/howtos/*.txt
 %dir %{py_sitescriptdir}/faces/lib
 %{py_sitescriptdir}/faces/lib/*.py[co]
