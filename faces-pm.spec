@@ -1,5 +1,5 @@
 Summary:	Project managment tool
-Summary(pl.UTF-8):	Narzędzie do zarządzania projektem
+Summary(pl.UTF-8):	Narzędzie do zarządzania projektami
 Name:		faces-pm
 Version:	0.11.4
 Release:	2
@@ -9,17 +9,24 @@ Source0:	http://dl.sourceforge.net/faces-project/%{name}-%{version}.tar.gz
 # Source0-md5:	fcd1246914a47d02407aa4ed9b767c6a
 URL:		http://faces.homeip.net/
 BuildRequires:	python-modules >= 2.2.1
-%pyrequires_eq	python-modules
 BuildRequires:	python-matplotlib
+%pyrequires_eq	python-modules
 Requires:	python-matplotlib
 Requires:	python-wxPython >= 2.6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-faces is a powerful and flexible project management tool. It not only offers
-many extraordinary features like multiple resource balancing algorithms and
-multi scenario planing, but can also be easily extended and customized.
+faces is a powerful and flexible project management tool. It not only
+offers many extraordinary features like multiple resource balancing
+algorithms and multi scenario planing, but can also be easily extended
+and customized.
+
+%description -l pl.UTF-8
+faces to potężne i elastyczne narzędzie do zarządzania projektami. Nie
+tylko oferuje wiele niezwykłych możliwości, takich jak wiele
+algorytmów równoważenia zasobów czy planowanie wieloscenariuszowe, ale
+także może być rozszerzane i dostosowywane.
 
 %prep
 %setup -q
@@ -37,7 +44,7 @@ python setup.py install \
 %py_postclean
 # reinstall project templates deleted by py_postclean
 install ./faces/gui/resources/templates/*.py \
-	$RPM_BUILD_ROOT%{py_sitescriptdir}/faces/gui/resources/templates/
+	$RPM_BUILD_ROOT%{py_sitescriptdir}/faces/gui/resources/templates
 
 %clean
 rm -rf $RPM_BUILD_ROOT
