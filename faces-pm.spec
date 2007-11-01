@@ -1,12 +1,12 @@
 Summary:	Project managment tool
 Summary(pl.UTF-8):	Narzędzie do zarządzania projektami
 Name:		faces-pm
-Version:	0.11.4
+Version:	0.11.6
 Release:	2
 License:	BSD-like
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/faces-project/%{name}-%{version}.tar.gz
-# Source0-md5:	fcd1246914a47d02407aa4ed9b767c6a
+# Source0-md5:	3ec5230227959a126a26fd97c056160e
 URL:		http://faces.homeip.net/
 BuildRequires:	python-modules >= 2.2.1
 BuildRequires:	python-matplotlib
