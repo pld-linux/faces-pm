@@ -8,6 +8,7 @@ Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/faces-project/%{name}-%{version}.tar.gz
 # Source0-md5:	3ec5230227959a126a26fd97c056160e
 URL:		http://faces.homeip.net/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	python-modules >= 2.2.1
 BuildRequires:	python-matplotlib
 %pyrequires_eq	python-modules
